@@ -9,6 +9,10 @@ class StitchRequest(BaseModel):
     image_urls: list[str]
     audio_url: str
     video_name: str
+    shuffle_duration: float = 1.0
+    sequential_duration: float = 6.0
+    sequential_passes: int = 2
+
 
 @app.post("/stitch")
 async def stitch_video(data: StitchRequest):
