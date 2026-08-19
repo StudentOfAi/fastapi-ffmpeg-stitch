@@ -1,5 +1,7 @@
 # FastAPI FFmpeg Stitch
 
+[![CI](https://github.com/StudentOfAi/fastapi-ffmpeg-stitch/actions/workflows/ci.yml/badge.svg)](https://github.com/StudentOfAi/fastapi-ffmpeg-stitch/actions/workflows/ci.yml)
+
 A REST API that takes a list of image URLs and an audio URL, then stitches them into a single `.mp4` video using FFmpeg.
 
 Built to automate content generation — no manual video editing, just POST your assets and get a video back.
@@ -54,3 +56,14 @@ Content-Type: application/json
 ## Deployment
 
 Includes `.render.yaml` for one-click deployment to Render.com.
+
+## Tests
+
+```bash
+pip install -r requirements-dev.txt
+pytest tests -v
+```
+
+14 tests cover request validation, download failures, ffmpeg error handling, and
+the constructed ffmpeg command. Network calls and ffmpeg are mocked, so the suite
+runs without either.
